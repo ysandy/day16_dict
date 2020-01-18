@@ -84,8 +84,8 @@ def login(name):
         elif cmd == '2':
             do_history(name)
         elif cmd == '3':
-            # s.send(b'E') #不能发，此时还在二级子目录下，会出错
-            # sys.exit("谢谢使用")
+            s.send(b'E')
+            sys.exit("谢谢使用")
             return
         else:
             print("请输入正确命令")

@@ -35,11 +35,11 @@ def do_login(connfd,name,passwd):
 
 
 def do_query(connfd,name,word):
-    db.insert_history(name, word)
     data = db.query(word)
     if data:
         msg = "%s : %s"%(word,data)
         connfd.send(msg.encode())
+        db.insert_history(name, word)  #如果单词存在，则插入数据表中
     else:
         connfd.send("单词不存在".encode())
 
